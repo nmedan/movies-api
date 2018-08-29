@@ -11,7 +11,7 @@ class Movie extends Model
     protected $fillable = ['title', 'director', 'imageUrl', 'duration',
     'releaseDate', 'genre'];
 
-    public static function search($term) {
-        return Movie::where('title', 'LIKE',  '%'.$term.'%')->get();
+    public static function search($term, $take, $skip) {
+        return Movie::where('title', 'LIKE',  '%'.$term.'%')->take($take)->skip($skip)->get();
     }
 }
