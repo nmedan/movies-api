@@ -1,14 +1,16 @@
 {
   "ExpandedNodes": [
+    "",
     "\\app",
     "\\app\\Http",
     "\\app\\Http\\Controllers",
+    "\\app\\Http\\Requests",
     "\\database",
+    "\\database\\factories",
     "\\database\\migrations",
-    "\\public",
-    "\\resources",
-    "\\routes"
+    "\\database\\seeds",
+    "\\public"
   ],
-  "SelectedNode": "\\app\\Movie.php",
+  "SelectedNode": "\\app\\Http\\Controllers\\MoviesController.php",
   "PreviewInSolutionExplorer": false
 }

@@ -18,8 +18,8 @@ class MoviesController extends Controller
     public function index(Request $request)
     {
         $title = $request->query('title');
-        $take = $request->query('take');
-        $skip = $request->query('skip');
+        $take = $request->query('take', Movie::count());
+        $skip = $request->query('skip', 0);
         return Movie::search($title, $take, $skip);
     }
 
@@ -41,10 +41,7 @@ class MoviesController extends Controller
      */
     public function store(StoreMovie $request)
     {
-        $validated = $request->validated();
-        if ($validated) {
-            $movie = Movie::create($request->all());      
-        } 
+        $movie = Movie::create($request->all());
     }
 
     /**
@@ -76,13 +73,10 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreMovie $request, $id)
     {
-        $validated = $request->validated();
-        if ($validated) {
-           $movie->update($request->all());
-        }
-        return $movie;
+        $movie = Movie::findOrFail($id);
+        $movie->update($request->all());
     }
 
     /**
