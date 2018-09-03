@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserRequest;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -59,6 +61,9 @@ class AuthController extends Controller
         return $this->respondWithToken(auth()->refresh());
     }
 
+    public function register(StoreUserRequest $request) {
+        $user = User::create($request->all());
+    }
     /**
      * Get the token array structure.
      *
