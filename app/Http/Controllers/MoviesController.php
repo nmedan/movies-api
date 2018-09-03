@@ -17,10 +17,10 @@ class MoviesController extends Controller
      */
     public function index(Request $request)
     {
-        $title = $request->query('title');
+        $term = $request->query('term');
         $take = $request->query('take', Movie::count());
         $skip = $request->query('skip', 0);
-        return Movie::search($title, $take, $skip);
+        return Movie::search($term, $take, $skip);
     }
 
     /**
