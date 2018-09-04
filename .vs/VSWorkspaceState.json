@@ -3,14 +3,14 @@
     "",
     "\\app",
     "\\app\\Console",
-    "\\app\\Exceptions",
-    "\\app\\Providers",
-    "\\config",
+    "\\app\\Http",
+    "\\app\\Http\\Controllers",
+    "\\app\\Http\\Requests",
+    "\\database",
+    "\\database\\migrations",
     "\\resources",
-    "\\routes",
-    "\\storage",
-    "\\storage\\app"
+    "\\resources\\views\\auth"
   ],
-  "SelectedNode": "\\config\\app.php",
+  "SelectedNode": "\\app\\User.php",
   "PreviewInSolutionExplorer": false
 }

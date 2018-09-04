@@ -1,16 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
+
 use App\Http\Requests\StoreUserRequest;
+
 use App\User;
 
 class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     /**
@@ -62,7 +68,12 @@ class AuthController extends Controller
     }
 
     public function register(StoreUserRequest $request) {
-        $user = User::create($request->all());
+        $password=Hash::make($request->password);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password
+         ]);
     }
     /**
      * Get the token array structure.
