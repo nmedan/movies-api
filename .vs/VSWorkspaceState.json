@@ -8,9 +8,8 @@
     "\\app\\Http\\Requests",
     "\\database",
     "\\database\\migrations",
-    "\\resources",
-    "\\resources\\views\\auth"
+    "\\resources"
   ],
-  "SelectedNode": "\\app\\User.php",
+  "SelectedNode": "\\app\\Http\\Controllers\\AuthController.php",
   "PreviewInSolutionExplorer": false
 }

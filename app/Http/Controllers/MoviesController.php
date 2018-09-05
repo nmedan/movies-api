@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\StoreMovie;
+use App\Http\Requests\StoreMovieRequest;
 
 use App\Movie;
 
@@ -39,7 +39,7 @@ class MoviesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMovie $request)
+    public function store(StoreMovieRequest $request)
     {
         $movie = Movie::create($request->all());
     }
@@ -52,7 +52,7 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        return Movie::find($id);
+        return Movie::findOrFail($id);
     }
 
     /**
@@ -73,10 +73,11 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreMovie $request, $id)
+    public function update(StoreMovieRequest $request, $id)
     {
         $movie = Movie::findOrFail($id);
         $movie->update($request->all());
+        return $movie;
     }
 
     /**
